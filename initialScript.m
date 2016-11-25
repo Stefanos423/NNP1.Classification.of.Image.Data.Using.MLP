@@ -1,3 +1,4 @@
+
 %load dataSet.mat
 X = sum(TrainDataTargets, 2);
 b = bar(X);
