@@ -1,4 +1,3 @@
-
 %load dataSet.mat
 X = sum(TrainDataTargets, 2);
 b = bar(X);
@@ -45,4 +44,20 @@ title('Number of segements in each category after preprocessing');
 %performed through a function to facilitate the
 %cooperative nature of this project
 [accuracy1 precision1 recall1] = step3(myTestData, TestDataTargets, myTrainData, myTrainDataTargets);
+
+%We are now going to create a new neural network of
+%2 hidden levels with 5 neurons each and steadily
+%increment the neurons in every level by 5 in each step
 [accuracy2 precision2 recall2] = step3b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets);
+
+%We are now going to try different training techniques
+%for 1 hidden level and 2 hidden levels respectively
+[accuracyGDX precisionGDX recallGDX] = step4(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 1);
+[accuracyLM precisionLM recallLM] = step4(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 2);
+[accuracyGD precisionGD recallGD] = step4(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 3);
+[accuracyGDA precisionGDA recallGDA] = step4(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 4);
+
+[accuracyGDX2 precisionGDX2 recallGDX2] = step4b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 1);
+[accuracyLM2 precisionLM2 recallLM2] = step4b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 2);
+[accuracyGD2 precisionGD2 recallGD2] = step4b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 3);
+[accuracyGDA2 precisionGDA2 recallGDA2] = step4b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 4);
