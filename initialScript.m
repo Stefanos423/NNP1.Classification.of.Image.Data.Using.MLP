@@ -105,13 +105,16 @@ for i = 1:4
     meanAccuracyGDA2 = meanAccuracyGDA2 + accuracyGDA2;
 end
 
-meanAccuracy1 = totalAccuracy1/6;
-meanAccuracy2 = totalAccuracy2/6;
-meanAccuracyGDX = meanAccuracyGDX/6;
-meanAccuracyLM = meanAccuracyLM/6;
-meanAccuracyGD = meanAccuracyGD/6;
-meanAccuracyGDA = meanAccuracyGDA/6;
-meanAccuracyGDX2 = meanAccuracyGDX2/6;
-meanAccuracyLM2 = meanAccuracyLM2/6;
-meanAccuracyGD2 = meanAccuracyGD2/6;
-meanAccuracyGDA2 = meanAccuracyGDA2/6;
+meanAccuracy1 = meanAccuracy1/5;
+meanAccuracy2 = meanAccuracy2/5;
+meanAccuracyGDX = meanAccuracyGDX/5;
+meanAccuracyLM = meanAccuracyLM/5;
+meanAccuracyGD = meanAccuracyGD/5;
+meanAccuracyGDA = meanAccuracyGDA/5;
+meanAccuracyGDX2 = meanAccuracyGDX2/5;
+meanAccuracyLM2 = meanAccuracyLM2/5;
+meanAccuracyGD2 = meanAccuracyGD2/5;
+meanAccuracyGDA2 = meanAccuracyGDA2/5;
+
+findBestTraining(meanAccuracyGDX, meanAccuracyLM, meanaccuracyGD,...
+    meanAccuracyGDA, meanAccuracyGDX2, meanAccuracyLM2, meanAccuracyGD2, meanAccuracyGDA2)
