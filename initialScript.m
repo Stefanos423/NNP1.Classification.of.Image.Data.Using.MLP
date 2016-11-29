@@ -61,3 +61,57 @@ title('Number of segements in each category after preprocessing');
 [accuracyLM2 precisionLM2 recallLM2] = step4b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 2);
 [accuracyGD2 precisionGD2 recallGD2] = step4b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 3);
 [accuracyGDA2 precisionGDA2 recallGDA2] = step4b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 4);
+
+%In the next few lines code we are going to try to
+%find the training algortihm that results in the
+%best accuracy. Because the results are varied depending
+%on the random initialisations, we are going to run
+%all the above code 4 more times
+meanAccuracy1 = accuracy1;
+meanAccuracy2 = accuracy2;
+
+meanAccuracyGDX = accuracyGDX;
+meanAccuracyLM = accuracyLM;
+meanAccuracyGD = accuracyGD;
+meanAccuracyGDA = accuracyGDA;
+meanAccuracyGDX2 = accuracyGDX2;
+meanAccuracyLM2 = accuracyLM2;
+meanAccuracyGD2 = accuracyGD2;
+meanAccuracyGDA2 = accuracyGDA2;
+
+for i = 1:4
+    [accuracy1 precision1 recall1] = step3(myTestData, TestDataTargets, myTrainData, myTrainDataTargets);
+    meanAccuracy1 = meanAccuracy1 + accuracy1;
+    
+    [accuracy2 precision2 recall2] = step3b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets);
+    meanAccuracy2 = meanAccuracy2 + accuracy2;
+    
+    [accuracyGDX precisionGDX recallGDX] = step4(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 1);
+    [accuracyLM precisionLM recallLM] = step4(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 2);
+    [accuracyGD precisionGD recallGD] = step4(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 3);
+    [accuracyGDA precisionGDA recallGDA] = step4(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 4);
+    meanAccuracyGDX = meanAccuracyGDX + accuracyGDX;
+    meanAccuracyLM = meanAccuracyLM + accuracyLM;
+    meanAccuracyGD = meanAccuracyGD + accuracyGD;
+    meanAccuracyGDA = meanAccuracyGDA + accuracyGDA;
+    
+    [accuracyGDX2 precisionGDX2 recallGDX2] = step4b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 1);
+    [accuracyLM2 precisionLM2 recallLM2] = step4b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 2);
+    [accuracyGD2 precisionGD2 recallGD2] = step4b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 3);
+    [accuracyGDA2 precisionGDA2 recallGDA2] = step4b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, 4);
+    meanAccuracyGDX2 = meanAccuracyGDX2 + accuracyGDX2;
+    meanAccuracyLM2 = meanAccuracyLM2 + accuracyLM2;
+    meanAccuracyGD2 = meanAccuracyGD2 + accuracyGD2;
+    meanAccuracyGDA2 = meanAccuracyGDA2 + accuracyGDA2;
+end
+
+meanAccuracy1 = totalAccuracy1/6;
+meanAccuracy2 = totalAccuracy2/6;
+meanAccuracyGDX = meanAccuracyGDX/6;
+meanAccuracyLM = meanAccuracyLM/6;
+meanAccuracyGD = meanAccuracyGD/6;
+meanAccuracyGDA = meanAccuracyGDA/6;
+meanAccuracyGDX2 = meanAccuracyGDX2/6;
+meanAccuracyLM2 = meanAccuracyLM2/6;
+meanAccuracyGD2 = meanAccuracyGD2/6;
+meanAccuracyGDA2 = meanAccuracyGDA2/6;

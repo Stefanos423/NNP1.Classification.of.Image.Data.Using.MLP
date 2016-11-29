@@ -35,7 +35,7 @@ end
  horzAxis = 5:5:30;
  vertAxis = 5:5:30;
  figure();
- contour3(horzAxis, vertAxis, accuracy);
+ surf(horzAxis, vertAxis, accuracy);
  title('Variable numbers of Neurons on the first and second Hidden Levels');
  xlabel('Number of Neurons on the first Hidden Level');
  ylabel('Number of Neurons on the second Hidden Level');
