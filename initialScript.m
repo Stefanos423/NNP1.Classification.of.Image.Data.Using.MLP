@@ -116,5 +116,5 @@ meanAccuracyLM2 = meanAccuracyLM2/5;
 meanAccuracyGD2 = meanAccuracyGD2/5;
 meanAccuracyGDA2 = meanAccuracyGDA2/5;
 
-findBestTraining(meanAccuracyGDX, meanAccuracyLM, meanaccuracyGD,...
+[name neuronsFirstLevel neuronsSecondLevel] = findBestTraining(meanAccuracyGDX, meanAccuracyLM, meanAccuracyGD,...
     meanAccuracyGDA, meanAccuracyGDX2, meanAccuracyLM2, meanAccuracyGD2, meanAccuracyGDA2)

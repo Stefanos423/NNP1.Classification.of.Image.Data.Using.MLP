@@ -1,5 +1,5 @@
-function [name x y] = ...
-findBestTraining (meanAccuracyGDX, meanAccuracyLM, meanaccuracyGD, meanAccuracyGDA, meanAccuracyGDX2, meanAccuracyLM2, meanaccuracyGD2, meanAccuracyGDA2) 
+function [name neuronsFirstLevel neuronsSecondLevel] = ...
+findBestTraining (meanAccuracyGDX, meanAccuracyLM, meanAccuracyGD, meanAccuracyGDA, meanAccuracyGDX2, meanAccuracyLM2, meanaccuracyGD2, meanAccuracyGDA2) 
 
 maxNum = 0;
 check = 0;

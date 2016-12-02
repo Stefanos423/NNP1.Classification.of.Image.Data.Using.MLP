@@ -6,7 +6,7 @@ precision = [];
 recall = [];
 for j = 5:5:30
     for i = 5:5:30
-         neural = newff(TrainData, TrainDataTargets, [i j]);
+         neural = newff(TrainData, TrainDataTargets, [j i]);
          if (trainingMethod == 1)
             neural.trainFcn = 'traingdx';
             [neural, tr] = train(neural, TrainData, TrainDataTargets);
