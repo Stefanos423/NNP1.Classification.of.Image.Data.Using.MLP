@@ -48,5 +48,19 @@ end
  recall(~any(recall,2), :) = [];
  recall(:, ~any(recall,1)) = [];
  
- %visualing the results
+fmeasure = calc_fmeasure(precision, recall);
+for i = 1:36
+        if (fmeasure(i) < 0.8)
+            accuracy(i) = 0;
+        end
+end
+
+horzAxis = 5:5:30;
+ vertAxis = 5:5:30;
+ figure();
+ surf(horzAxis, vertAxis, accuracy);
+ title('Variable numbers of Neurons on the first and second Hidden Levels');
+ xlabel('Number of Neurons on the first Hidden Level');
+ ylabel('Number of Neurons on the second Hidden Level');
+ zlabel('Accuracy');
  

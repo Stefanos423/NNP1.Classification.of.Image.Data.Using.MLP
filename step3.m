@@ -28,6 +28,13 @@ end
  recall(~any(recall,2), :) = [];
  recall(:, ~any(recall,1)) = [];
  
+ fmeasure = calc_fmeasure1(precision, recall);
+ for i = 1:6
+     if (fmeasure(i) < 0.8)
+         accuracy(i) = 0;
+     end
+ end
+ 
  %visualing the results
  horzAxis = 5:5:30;
  figure();

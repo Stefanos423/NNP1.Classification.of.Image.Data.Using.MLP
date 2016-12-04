@@ -8,35 +8,35 @@ check = 0;
 if (M > maxNum)
 	maxNum = M;
 	maxI = I;
-	name = 'GDX';
+	name = 'traingdx';
 end
 
 [M, I] = max(meanAccuracyLM(:));
 if(M > maxNum)
 	maxNum = M;
 	maxI = I;
-	name = 'LM';
+	name = 'trainlm';
 end
 
 [M, I] = max(meanAccuracyGD(:));
 if (M > maxNum)
 	maxNum = M;
 	maxI = I;
-	name = 'GD';
+	name = 'traingd';
 end
 
 [M, I] = max(meanAccuracyGDA(:));
 if (M > maxNum)
 	maxNum = M;
 	maxI = I;
-	name = 'GDA';
+	name = 'traingda';
 end
 
 [M, I] = max(meanAccuracyGDX2(:));
 if (M > maxNum)
 	maxNum = M;
 	maxI = I;
-	name = 'GDX2';
+	name = 'traingdx';
 	check = 2;
 end
 
@@ -44,7 +44,7 @@ end
 if(M > maxNum)
 	maxNum = M;
 	maxI = I;
-	name = 'LM2';
+	name = 'trainlm';
 	check = 2;
 end
 
@@ -52,7 +52,7 @@ end
 if (M > maxNum)
 	maxNum = M;
 	maxI = I;
-	name = 'GD2';
+	name = 'traingd';
 	check = 2;
 end
 
@@ -60,7 +60,7 @@ end
 if (M > maxNum)
 	maxNum = M;
 	maxI = I;
-	name = 'GDA2';
+	name = 'traingda';
 	check = 2;
 end
 
