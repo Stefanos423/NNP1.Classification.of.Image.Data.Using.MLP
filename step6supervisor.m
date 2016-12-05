@@ -1,11 +1,11 @@
 
 %step6a
-[actaccu actprec atrec] = step6a(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, BestTrain);
+[actaccu actprec atrec] = step6a(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, neuronsFirstLevel, neuronsSecondLevel, BestTrain);
 
 meanaccuracyActivation = actaccu;
 
 for i = 1:4
-    [actaccu actprec actrec] = step6a(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, BestTrain);
+    [actaccu actprec actrec] = step6a(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, neuronsFirstLevel, neuronsSecondLevel, BestTrain);
     
     meanaccuracyActivation = meanaccuracyActivation + actaccu;
 end
@@ -18,7 +18,7 @@ meanaccuracyActivation = meanaccuracyActivation/5;
 
 meanaccuracyLearning = learnaccu;
 for i = 1:4
-    [learnaccu learnprec learnrec] = step6b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, neuronsFirstLevel, neuronsSecondLevel, 'trainlm', BestActivation);
+    [learnaccu learnprec learnrec] = step6b(myTestData, TestDataTargets, myTrainData, myTrainDataTargets, neuronsFirstLevel, neuronsSecondLevel, BestTrain, BestActivation);
     
     meanaccuracyLearning = meanaccuracyLearning + learnaccu;
 end
