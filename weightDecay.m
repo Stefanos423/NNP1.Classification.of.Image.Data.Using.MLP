@@ -4,7 +4,7 @@ function [accuracy, precision, recall] = weightDecay(b_activation_function, max_
 l = 0.2;
 d = 0.04;
 
-    neural = newff(TrainData_processe, TrainDataTargets, [30]);
+    neural = newff(TrainData, TrainDataTargets, [30]);
     neural.divideParam.trainRatio = 0.8;
     neural.divideParam.valRatio = 0.2;
     neural.divideParam.testRatio = 0;
@@ -23,14 +23,13 @@ for k = 1:20
     new_t = new_t.*thresh;   
     non_zero = find(new_t);
     number_of_non_zero(k) = length(non_zero);
+	TestDataOutput_wg = sim(neural, TestData);
     error(k) = sum(sum((TestDataTargets - TestDataOutput_wg).^2, 2)) / ...
          (size(TestDataOutput_wg,1) * size(TestDataOutput_wg,2));
     neural = setwb(neural, new_t);
+	[accuracy(k), precision(k,:), recall(k,:)] = eval_Accuracy_Precision_Recall(TestDataOutput_wg,TestDataTargets);
     
 end
-TestDataOutput_wg = sim(neural, TestData);
-[accuracy, precision, recall]=...
-    eval_Accuracy_Precision_Recall(TestDataOutput_wg,TestDataTargets);
 
 iterations = 1:20;
 figure();
