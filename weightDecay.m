@@ -9,12 +9,12 @@ d = 0.04;
     neural.divideParam.valRatio = 0.2;
     neural.divideParam.testRatio = 0;
     neural.layers{2}.transferFcn = b_activation_function;
-    neural.trainParam.lr = max_learn_rate;
+    %neural.trainParam.lr = max_learn_rate;
     neural.trainParam.epochs = 1;
     neural.trainFcn = b_train;
     neural = train(neural, TrainData, TrainDataTargets);
 
-for k = 1:20
+for k = 1:200
     t = getwb(neural); 
     [neural, tr] = train(neural, TrainData, TrainDataTargets);
     new_t = getwb(neural);
@@ -31,7 +31,7 @@ for k = 1:20
     
 end
 
-iterations = 1:20;
+iterations = 1:200;
 figure();
 subplot(2,1,1)
 plot(iterations, number_of_non_zero);
