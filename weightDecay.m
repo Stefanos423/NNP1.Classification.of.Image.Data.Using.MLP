@@ -1,7 +1,7 @@
 function [accuracy, precision, recall] = weightDecay(b_activation_function, max_learn_rate, b_train, TestData, ...
     TestDataTargets, TrainData, TrainDataTargets)
 
-l = 0.2;
+l = 0.3;
 d = 0.04;
 
     neural = newff(TrainData, TrainDataTargets, [30]);
@@ -14,7 +14,7 @@ d = 0.04;
     neural.trainFcn = b_train;
     neural = train(neural, TrainData, TrainDataTargets);
 
-for k = 1:200
+for k = 1:50
     t = getwb(neural); 
     [neural, tr] = train(neural, TrainData, TrainDataTargets);
     new_t = getwb(neural);
@@ -31,7 +31,7 @@ for k = 1:200
     
 end
 
-iterations = 1:200;
+iterations = 1:50;
 figure();
 subplot(2,1,1)
 plot(iterations, number_of_non_zero);

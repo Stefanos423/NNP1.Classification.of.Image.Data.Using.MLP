@@ -55,10 +55,16 @@ for i = 1:36
         end
 end
 
-horzAxis = 5:5:30;
- vertAxis = 5:5:30;
  figure();
- surf(horzAxis, vertAxis, accuracy);
+ [xx yy] = meshgrid(1:0.1:10);
+ xx = xx*2;
+ yy = yy*2;
+ surf(interp2(accuracy, xx, yy));
+
+ %horzAxis = 5:5:30;
+ %vertAxis = 5:5:30;
+ %figure();
+ %surf(horzAxis, vertAxis, accuracy);
  title('Variable numbers of Neurons on the first and second Hidden Levels');
  xlabel('Number of Neurons on the first Hidden Level');
  ylabel('Number of Neurons on the second Hidden Level');
