@@ -7,6 +7,6 @@ if (index_column == 1)
     BestLR = index_row * 0.05;
     BestLRTraining = 'traingd';
 else
-    BestLR = index_row * 0.005;
+    BestLR = index_row * 0.05;
     BestLRTraining = 'traingdx';
 end

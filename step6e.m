@@ -1,12 +1,13 @@
 function [accuracy] = step6e(TestData, TestDataTargets, TrainData, TrainDataTargets, neuronsFirstLevel, neuronsSecondLevel)
 
 accuracy = [];
-%precision = [];
-%recall = [];
+precision = [];
+recall = [];
 
 j = 1;
 for i = 0.05:0.05:0.4
-    neural = newff(TrainData, TrainDataTargets, [neuronsFirstLevel neuronsSecondLevel], {}, 'traingd');
+    neural = newff(TrainData, TrainDataTargets, [neuronsFirstLevel neuronsSecondLevel]);
+    neural.trainFcn = 'traingd';
     neural.divideParam.trainRatio = 0.8;
     neural.divideParam.valRatio = 0.2;
     neural.divideParam.testRatio = 0;
@@ -20,13 +21,14 @@ for i = 0.05:0.05:0.4
 end
 
 accuracy = horzcat(accuracy, accu);
-%precision = horzcat(precision, prec);
-%recall = horzcat(recall,rec);
+precision = horzcat(precision, prec);
+recall = horzcat(recall,rec);
 
 j = 1;
-for i = 0.005:0.005:0.04
+for i = 0.05:0.05:0.4
 %    neural = newff(TrainData, TrainDataTargets, [neuronsFirstLevel neuronsSecondLevel], {'tansig','tansig',BestActivation}, 'traingdx', BestLearn);
-    neural = newff(TrainData, TrainDataTargets, [neuronsFirstLevel neuronsSecondLevel],{}, 'traingdx');
+    neural = newff(TrainData, TrainDataTargets, [neuronsFirstLevel neuronsSecondLevel]);
+    neural.trainFcn = 'traingdx';
     neural.divideParam.trainRatio = 0.8;
     neural.divideParam.valRatio = 0.2;
     neural.divideParam.testRatio = 0;
@@ -40,5 +42,3 @@ for i = 0.005:0.005:0.04
 end
 
 accuracy = horzcat(accuracy, accu);
-%precision = horzcat(precision, prec);
-%recall = horzcat(recall,rec);
